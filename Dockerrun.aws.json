@@ -1,0 +1,73 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "proxy_server",
+      "image": "profilid/profilid_proxy_server",
+      "hostname": "proxy_server",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "client",
+        "auth",
+        "users",
+        "profiles",
+        "users_db",
+        "profiles_db"
+      ]
+    },
+    {
+      "name": "client",
+      "image": "profilid/profilid_client",
+      "hostname": "client",
+      "essential": false,
+      "links": ["proxy_server"]
+    },
+    {
+      "name": "auth",
+      "image": "profilid/profilid_auth",
+      "hostname": "auth",
+      "essential": false,
+      "links": ["proxy_server"]
+    },
+    {
+      "name": "users",
+      "image": "profilid/profilid_users",
+      "hostname": "users",
+      "essential": false,
+      "links": ["proxy_server"]
+    },
+    {
+      "name": "profiles",
+      "image": "profilid/profilid_profiles",
+      "hostname": "profiles",
+      "essential": false,
+      "link": ["proxy_server"]
+    },
+    {
+      "name": "users_db",
+      "image": "profilid/profilid_users_db",
+      "hostname": "users_db",
+      "essential": false,
+      "links": ["mongo_db"]
+    },
+    {
+      "name": "profiles_db",
+      "image": "profilid/profilid_profiles_db",
+      "hostname": "profiles_db",
+      "essential": false,
+      "links": ["mongo_db"]
+    },
+    {
+      "name": "mongo_db",
+      "image": "mongo",
+      "hostname": "mongo_db",
+      "essential": false
+    }
+  ]
+}

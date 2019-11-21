@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+# If you have tests setup in images
+# pull the images
+# run tests
+
+#if tests succeed
+#deploy using Dockerrun.aws.json
