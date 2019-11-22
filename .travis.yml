@@ -2,6 +2,10 @@ sudo: required
 services:
   - docker
 
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker pull profilid/profilid_proxy_server
+
 deploy:
   provider: elasticbeanstalk
   region: us-east-2
