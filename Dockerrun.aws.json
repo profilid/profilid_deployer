@@ -6,6 +6,7 @@
       "image": "profilid/profilid_proxy_server",
       "hostname": "proxy_server",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
@@ -26,6 +27,7 @@
       "image": "profilid/profilid_client",
       "hostname": "client",
       "essential": false,
+      "memory": 128,
       "links": ["proxy_server"]
     },
     {
@@ -33,6 +35,7 @@
       "image": "profilid/profilid_auth",
       "hostname": "auth",
       "essential": false,
+      "memory": 128,
       "links": ["proxy_server"]
     },
     {
@@ -40,6 +43,7 @@
       "image": "profilid/profilid_users",
       "hostname": "users",
       "essential": false,
+      "memory": 128,
       "links": ["proxy_server"]
     },
     {
@@ -47,6 +51,7 @@
       "image": "profilid/profilid_profiles",
       "hostname": "profiles",
       "essential": false,
+      "memory": 128,
       "link": ["proxy_server"]
     },
     {
@@ -54,6 +59,7 @@
       "image": "profilid/profilid_users_db",
       "hostname": "users_db",
       "essential": false,
+      "memory": 128,
       "links": ["mongo_db"]
     },
     {
@@ -61,13 +67,8 @@
       "image": "profilid/profilid_profiles_db",
       "hostname": "profiles_db",
       "essential": false,
+      "memory": 128,
       "links": ["mongo_db"]
-    },
-    {
-      "name": "mongo_db",
-      "image": "mongo",
-      "hostname": "mongo_db",
-      "essential": false
     }
   ]
 }

@@ -1,9 +1,15 @@
 sudo: required
 services:
   - docker
-# If you have tests setup in images
-# pull the images
-# run tests
 
-#if tests succeed
-#deploy using Dockerrun.aws.json
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: profilid
+  env: Profilid-env
+  bucket_name: elasticbeanstalk-us-east-2-880701106342
+  bucket_path: profilid_app
+  on:
+    branch: master
+  access_key_id: '$AWS_ACCESS_KEY'
+  secret_access_key: 'AWS_SECRET_KEY'
