@@ -12,14 +12,6 @@
           "hostPort": 80,
           "containerPort": 80
         }
-      ],
-      "links": [
-        "client",
-        "auth",
-        "users",
-        "profiles",
-        "users_db",
-        "profiles_db"
       ]
     },
     {
