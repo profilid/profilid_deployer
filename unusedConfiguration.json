@@ -1,0 +1,24 @@
+[
+  {
+    "name": "profiles",
+    "image": "profilid/profilid_profiles",
+    "hostname": "profiles",
+    "essential": false,
+    "memory": 128,
+    "link": ["proxyServer"]
+  },
+  {
+    "name": "usersDb",
+    "image": "profilid/profilid_users_db",
+    "hostname": "usersDb",
+    "essential": false,
+    "memory": 128
+  },
+  {
+    "name": "profilesDb",
+    "image": "profilid/profilid_profiles_db",
+    "hostname": "profilesDb",
+    "essential": false,
+    "memory": 128
+  }
+]
