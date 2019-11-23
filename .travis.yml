@@ -5,6 +5,12 @@ services:
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker pull profilid/profilid_proxy_server
+  - docker pull profilid/profilid_auth
+  - docker pull profilid/profilid_client
+  - docker pull profilid/profilid_users
+  - docker pull profilid/profilid_profiles
+  - docker pull profilid/profilid_users_db
+  - docker pull profilid/profilid_profiles_db
 
 deploy:
   provider: elasticbeanstalk
