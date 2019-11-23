@@ -49,14 +49,14 @@
     {
       "name": "usersDb",
       "image": "profilid/profilid_users_db",
-      "hostname": "users_db",
+      "hostname": "usersDb",
       "essential": false,
       "memory": 128
     },
     {
       "name": "profilesDb",
       "image": "profilid/profilid_profiles_db",
-      "hostname": "profiles_db",
+      "hostname": "profilesDb",
       "essential": false,
       "memory": 128
     }
