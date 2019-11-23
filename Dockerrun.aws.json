@@ -51,16 +51,14 @@
       "image": "profilid/profilid_users_db",
       "hostname": "users_db",
       "essential": false,
-      "memory": 128,
-      "links": ["mongo_db"]
+      "memory": 128
     },
     {
       "name": "profiles_db",
       "image": "profilid/profilid_profiles_db",
       "hostname": "profiles_db",
       "essential": false,
-      "memory": 128,
-      "links": ["mongo_db"]
+      "memory": 128
     }
   ]
 }
