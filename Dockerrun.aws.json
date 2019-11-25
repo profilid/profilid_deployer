@@ -12,15 +12,15 @@
           "hostPort": 80,
           "containerPort": 80
         }
-      ]
+      ],
+      "links": ["client", "auth", "users", "profiles"]
     },
     {
       "name": "client",
       "image": "profilid/profilid_client",
       "hostname": "client",
       "essential": false,
-      "memory": 128,
-      "links": ["proxyServer"]
+      "memory": 128
     },
     {
       "name": "auth",
@@ -28,7 +28,7 @@
       "hostname": "auth",
       "essential": false,
       "memory": 128,
-      "links": ["proxyServer"]
+      "links": ["usersDb", "profilesDb"]
     },
     {
       "name": "users",
@@ -36,7 +36,7 @@
       "hostname": "users",
       "essential": false,
       "memory": 128,
-      "links": ["proxyServer"]
+      "links": ["usersDb", "auth"]
     },
     {
       "name": "profiles",
@@ -44,7 +44,7 @@
       "hostname": "profiles",
       "essential": false,
       "memory": 128,
-      "link": ["proxyServer"]
+      "link": ["profilesDb", "auth"]
     },
     {
       "name": "usersDb",
