@@ -20,7 +20,13 @@
       "image": "profilid/profilid_client",
       "hostname": "client",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
     },
     {
       "name": "auth",
@@ -28,6 +34,12 @@
       "hostname": "auth",
       "essential": false,
       "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 4000,
+          "containerPort": 4000
+        }
+      ],
       "links": ["usersDb", "profilesDb"]
     },
     {
@@ -36,6 +48,12 @@
       "hostname": "users",
       "essential": false,
       "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 5001,
+          "containerPort": 5001
+        }
+      ],
       "links": ["usersDb", "auth"]
     },
     {
@@ -44,6 +62,12 @@
       "hostname": "profiles",
       "essential": false,
       "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 6001,
+          "containerPort": 6001
+        }
+      ],
       "link": ["profilesDb", "auth"]
     },
     {
@@ -51,14 +75,26 @@
       "image": "profilid/profilid_users_db",
       "hostname": "usersDb",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 5000,
+          "containerPort": 5000
+        }
+      ]
     },
     {
       "name": "profilesDb",
       "image": "profilid/profilid_profiles_db",
       "hostname": "profilesDb",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 6000,
+          "containerPort": 6000
+        }
+      ]
     }
   ]
 }
