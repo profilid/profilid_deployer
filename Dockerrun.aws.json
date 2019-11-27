@@ -13,8 +13,9 @@
           "containerPort": 80
         }
       ],
-      "links": ["client", "auth", "users", "profiles"]
+      "links": ["client", "users", "profiles"]
     },
+
     {
       "name": "client",
       "image": "profilid/profilid_client",
@@ -28,6 +29,7 @@
         }
       ]
     },
+
     {
       "name": "auth",
       "image": "profilid/profilid_auth",
@@ -39,9 +41,9 @@
           "hostPort": 4000,
           "containerPort": 4000
         }
-      ],
-      "links": ["usersDb", "profilesDb"]
+      ]
     },
+
     {
       "name": "users",
       "image": "profilid/profilid_users",
@@ -56,6 +58,7 @@
       ],
       "links": ["usersDb", "auth"]
     },
+
     {
       "name": "profiles",
       "image": "profilid/profilid_profiles",
@@ -68,8 +71,9 @@
           "containerPort": 6001
         }
       ],
-      "link": ["profilesDb", "auth"]
+      "links": ["profilesDb", "auth"]
     },
+
     {
       "name": "usersDb",
       "image": "profilid/profilid_users_db",
@@ -83,6 +87,7 @@
         }
       ]
     },
+
     {
       "name": "profilesDb",
       "image": "profilid/profilid_profiles_db",
