@@ -13,10 +13,10 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: us-east-2
+  region: ap-south-1
   app: profilid
   env: Profilid-env
-  bucket_name: elasticbeanstalk-us-east-2-880701106342
+  bucket_name: elasticbeanstalk-ap-south-1-880701106342
   bucket_path: profilid_app
   on:
     branch: master
