@@ -4,6 +4,7 @@ services:
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker pull profilid/profilid_proxy_server
+  - docker pull profilid/profilid_client
   
 
 deploy:
