@@ -2,21 +2,6 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "proxyServer",
-      "image": "profilid/profilid_proxy_server",
-      "hostname": "proxyServer",
-      "essential": true,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "containerPort": 80
-        }
-      ],
-      "links": ["client","auth","users", "profiles"]
-    },
-
-    {
       "name": "client",
       "image": "profilid/profilid_client",
       "hostname": "client",
@@ -101,6 +86,21 @@
           "containerPort": 6000
         }
       ]
+    },
+
+    {
+      "name": "proxyServer",
+      "image": "profilid/profilid_proxy_server",
+      "hostname": "proxyServer",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client","auth","users", "profiles"]
     }
 
   ]
