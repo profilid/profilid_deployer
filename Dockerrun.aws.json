@@ -28,7 +28,7 @@
           "containerPort": 80
         }
       ],
-      "links": ["client","auth","users", "profiles"]
+      "links": ["client"]
     }
 
   ]
