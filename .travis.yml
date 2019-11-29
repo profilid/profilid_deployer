@@ -16,7 +16,7 @@ deploy:
   provider: elasticbeanstalk
   region: ap-south-1
   app: profilid
-  env: Profilid-env
+  env: Profilid-env-1
   bucket_name: elasticbeanstalk-ap-south-1-880701106342
   bucket_path: profilid_app
   on:
