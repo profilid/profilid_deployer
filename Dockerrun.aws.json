@@ -55,7 +55,7 @@
           "containerPort": 4000
         }
       ], 
-      "links": ["usersDb:usersDb", "profilesDb:profilesDb"]
+      "links": ["usersDb", "profilesDb"]
     },
   
     {
@@ -70,7 +70,7 @@
           "containerPort": 5001
         }
       ],
-      "links": ["usersDb:usersDb", "auth:auth"]
+      "links": ["usersDb", "auth"]
     },
   
     {
@@ -85,7 +85,7 @@
           "containerPort": 6001
         }
       ],
-      "links": ["profilesDb:profilesDb", "auth:auth"]
+      "links": ["profilesDb", "auth"]
     },
 
     {
@@ -100,7 +100,7 @@
           "containerPort": 80
         }
       ],
-      "links": ["client", "users", "profiles", "auth"]
+      "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
     }
 
   ]
