@@ -1,5 +1,13 @@
 {
   "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "authKeys",
+      "host": {
+        "sourcePath": "/var/app/auth_keys"
+      }
+    }
+  ],
   "containerDefinitions": [
     {
       "name": "usersDb",
@@ -14,7 +22,7 @@
         }
       ]
     },
-  
+
     {
       "name": "profilesDb",
       "image": "profilid/profilid_profiles_db",
@@ -54,10 +62,17 @@
           "hostPort": 4000,
           "containerPort": 4000
         }
-      ], 
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "authKeys",
+          "containerPath": "/app",
+          "readOnly": true
+        }
+      ],
       "links": ["usersDb", "profilesDb"]
     },
-  
+
     {
       "name": "users",
       "image": "profilid/profilid_users",
@@ -72,7 +87,7 @@
       ],
       "links": ["usersDb", "auth"]
     },
-  
+
     {
       "name": "profiles",
       "image": "profilid/profilid_profiles",
@@ -102,6 +117,5 @@
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
     }
-
   ]
 }
