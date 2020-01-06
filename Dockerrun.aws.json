@@ -63,6 +63,12 @@
           "containerPort": 4000
         }
       ],
+      "mountPoints": [
+        {
+          "sourceVolume": "authKeys",
+          "containerPath": "/app"
+        }
+      ],
       "links": ["usersDb", "profilesDb"]
     },
 
