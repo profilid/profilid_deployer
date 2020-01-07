@@ -2,9 +2,15 @@
   "AWSEBDockerrunVersion": 2,
   "volumes": [
     {
-      "name": "authKeys",
+      "name": "auth-private-key",
       "host": {
-        "sourcePath": "/var/app/auth_keys"
+        "sourcePath": "/var/app/auth_keys/private.key"
+      }
+    },
+    {
+      "name": "auth-public-key",
+      "host": {
+        "sourcePath": "/var/app/auth_keys/public.key"
       }
     }
   ],
@@ -65,8 +71,13 @@
       ],
       "mountPoints": [
         {
-          "sourceVolume": "authKeys",
-          "containerPath": "/var/app/authKeys",
+          "sourceVolume": "auth-private-key",
+          "containerPath": "/app/auth_keys/private.key",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "auth-public-key",
+          "containerPath": "/app/auth_keys/public.key",
           "readOnly": true
         }
       ],
