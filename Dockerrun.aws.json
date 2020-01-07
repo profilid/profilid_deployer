@@ -1,13 +1,5 @@
 {
   "AWSEBDockerrunVersion": 2,
-  "volumes": [
-    {
-      "name": "authKeys",
-      "host": {
-        "sourcePath": "/var/app/auth_keys"
-      }
-    }
-  ],
   "containerDefinitions": [
     {
       "name": "usersDb",
@@ -61,12 +53,6 @@
         {
           "hostPort": 4000,
           "containerPort": 4000
-        }
-      ],
-      "mountPoints": [
-        {
-          "sourceVolume": "authKeys",
-          "containerPath": "/app"
         }
       ],
       "links": ["usersDb", "profilesDb"]
