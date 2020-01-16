@@ -127,19 +127,6 @@
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
-    },
-    {
-      "name": "logstash",
-      "image": "profilid/profilid_logstash",
-      "hostname": "logstash",
-      "essential": false,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 9600,
-          "containerPort": 9600
-        }
-      ]
     }
   ]
 }
