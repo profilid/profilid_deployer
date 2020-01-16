@@ -10,7 +10,7 @@ script:
   - docker pull profilid/profilid_profiles
   - docker pull profilid/profilid_users_db
   - docker pull profilid/profilid_profiles_db
-  
+  - docker pull profilid/profilif_logstash
 
 deploy:
   provider: elasticbeanstalk
