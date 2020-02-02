@@ -12,6 +12,12 @@
       "host": {
         "sourcePath": "/var/app/auth_keys/public.key"
       }
+    },
+    {
+      "name": "letsencrypt",
+      "host": {
+        "sourcePath": "/var/app/cert"
+      }
     }
   ],
   "containerDefinitions": [
@@ -115,6 +121,23 @@
     },
 
     {
+      "name": "certbot",
+      "image": "certbot/certbot",
+      "essential": false,
+      "memory": 128,
+      "mountpoints": [
+        {
+          "sourceVolume": "letsencrypt",
+          "containerPath": "/etc/letsencrypt"
+        },
+        {
+          "sourceVolume": "letsencrypt",
+          "containerPath": "/var/www/certbot"
+        }
+      ]
+    },
+
+    {
       "name": "proxyServer",
       "image": "profilid/profilid_proxy_server",
       "hostname": "proxyServer",
@@ -124,6 +147,20 @@
         {
           "hostPort": 80,
           "containerPort": 80
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "letsencrypt",
+          "containerPath": "/etc/letsencrypt"
+        },
+        {
+          "sourceVolume": "letsencrypt",
+          "containerPath": "/var/www/certbot"
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
