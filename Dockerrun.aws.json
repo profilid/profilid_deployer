@@ -149,7 +149,7 @@
         },
         {
           "sourceVolume": "letsencrypt-certificates",
-          "containerPath": "/etc/letsencrypt/live/profilid.com"
+          "containerPath": "/etc/nginx"
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
