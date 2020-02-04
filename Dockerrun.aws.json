@@ -12,6 +12,18 @@
       "host": {
         "sourcePath": "/var/app/auth_keys/public.key"
       }
+    },
+    {
+      "name": "letsencrypt-site",
+      "host": {
+        "sourcePath": "/var/app/cert/letsencrypt-site"
+      }
+    },
+    {
+      "name": "certbot-conf",
+      "host": {
+        "sourcePath": "/var/app/cert/conf"
+      }
     }
   ],
   "containerDefinitions": [
@@ -115,6 +127,30 @@
     },
 
     {
+      "name": "certbot",
+      "image": "certbot/certbot",
+      "hostname": "certbot",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 12000,
+          "containerPort": 12000
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "letsencrypt-site",
+          "containerVolume": "/var/www/certbot"
+        },
+        {
+          "sourceVolume": "certbot-conf",
+          "containerVolume": "/etc/letsencrypt"
+        }
+      ]
+    },
+
+    {
       "name": "proxyServer",
       "image": "profilid/profilid_proxy_server",
       "hostname": "proxyServer",
@@ -128,6 +164,12 @@
         {
           "hostPort": 443,
           "containerPort": 443
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "letsencrypt-site",
+          "containerPath": "/usr/share/nginx/html"
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
