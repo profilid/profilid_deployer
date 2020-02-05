@@ -20,9 +20,15 @@
       }
     },
     {
-      "name": "letsencrypt-certificates",
+      "name": "letsencrypt-fullchain",
       "host": {
-        "sourcePath": "/var/app/cert/letsencrypt/etc/live/profilid.com"
+        "sourcePath": "/var/app/cert/letsencrypt/etc/live/profilid.com/fullchain.pem"
+      }
+    },
+    {
+      "name": "letsencrypt-privkey",
+      "host": {
+        "sourcePath": "/var/app/cert/letsencrypt/etc/live/profilid.com/privkey.pem"
       }
     }
   ],
@@ -148,8 +154,12 @@
           "containerPath": "/usr/share/nginx/html"
         },
         {
-          "sourceVolume": "letsencrypt-certificates",
-          "containerPath": "/var/app/cert/letsencrypt/etc/live/profilid.com"
+          "sourceVolume": "letsencrypt-fullchain",
+          "containerPath": "/var/app/cert/letsencrypt/etc/live/profilid.com/fullchain.pem"
+        },
+        {
+          "sourceVolume": "letsencrypt-privkey",
+          "containerPath": "/var/app/cert/letsencrypt/etc/live/profilid.com/privkey.pem"
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
