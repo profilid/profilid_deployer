@@ -22,13 +22,13 @@
     {
       "name": "letsencrypt-fullchain",
       "host": {
-        "sourcePath": "/var/app/cert/letsencrypt/etc/live/profilid.com/fullchain.pem"
+        "sourcePath": "/var/app/cert/letsencrypt/live/profilid.com/fullchain.pem"
       }
     },
     {
       "name": "letsencrypt-privkey",
       "host": {
-        "sourcePath": "/var/app/cert/letsencrypt/etc/live/profilid.com/privkey.pem"
+        "sourcePath": "/var/app/cert/letsencrypt/live/profilid.com/privkey.pem"
       }
     }
   ],
@@ -155,11 +155,11 @@
         },
         {
           "sourceVolume": "letsencrypt-fullchain",
-          "containerPath": "/var/app/cert/letsencrypt/etc/live/profilid.com/fullchain.pem"
+          "containerPath": "/var/app/cert/letsencrypt/live/profilid.com/fullchain.pem"
         },
         {
           "sourceVolume": "letsencrypt-privkey",
-          "containerPath": "/var/app/cert/letsencrypt/etc/live/profilid.com/privkey.pem"
+          "containerPath": "/var/app/cert/letsencrypt/live/profilid.com/privkey.pem"
         }
       ],
       "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
