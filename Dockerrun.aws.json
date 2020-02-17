@@ -176,7 +176,15 @@
           "containerPath": "/var/app/cert/letsencrypt/live/profilid.com/privkey.pem"
         }
       ],
-      "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
+      "links": [
+        "client",
+        "users",
+        "profiles",
+        "auth",
+        "search",
+        "usersDb",
+        "profilesDb"
+      ]
     }
   ]
 }
