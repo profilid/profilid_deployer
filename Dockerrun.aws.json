@@ -103,20 +103,6 @@
     },
 
     {
-      "name": "search",
-      "image": "profilid/profilid_search",
-      "hostname": "search",
-      "essential": false,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 9100,
-          "containerPort": 9100
-        }
-      ]
-    },
-
-    {
       "name": "users",
       "image": "profilid/profilid_users",
       "hostname": "users",
@@ -176,15 +162,7 @@
           "containerPath": "/var/app/cert/letsencrypt/live/profilid.com/privkey.pem"
         }
       ],
-      "links": [
-        "client",
-        "users",
-        "profiles",
-        "auth",
-        "search",
-        "usersDb",
-        "profilesDb"
-      ]
+      "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
     }
   ]
 }

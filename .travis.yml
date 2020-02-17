@@ -8,7 +8,6 @@ script:
   - docker pull profilid/profilid_auth
   - docker pull profilid/profilid_users
   - docker pull profilid/profilid_profiles
-  - docker pull profilid/profilid_search
   - docker pull profilid/profilid_users_db
   - docker pull profilid/profilid_profiles_db
 
