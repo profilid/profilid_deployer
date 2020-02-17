@@ -103,6 +103,20 @@
     },
 
     {
+      "name": "search",
+      "image": "profilid/profilid_search",
+      "hostname": "search",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 9100,
+          "containerPort": 9100
+        }
+      ]
+    },
+
+    {
       "name": "users",
       "image": "profilid/profilid_users",
       "hostname": "users",
@@ -130,20 +144,6 @@
         }
       ],
       "links": ["profilesDb", "auth"]
-    },
-
-    {
-      "name": "search",
-      "image": "profilid/profilid_search",
-      "hostname": "search",
-      "essential": false,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 9100,
-          "containerPort": 9100
-        }
-      ]
     },
 
     {
