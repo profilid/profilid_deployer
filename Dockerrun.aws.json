@@ -133,20 +133,6 @@
     },
 
     {
-      "name": "analysis",
-      "image": "profilid/profilid_analysis",
-      "hostname": "analysis",
-      "essential": false,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 7000,
-          "containerPort": 7000
-        }
-      ]
-    },
-
-    {
       "name": "proxyServer",
       "image": "profilid/profilid_proxy_server",
       "hostname": "proxyServer",
