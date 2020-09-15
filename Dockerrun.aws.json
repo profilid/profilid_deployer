@@ -133,6 +133,20 @@
     },
 
     {
+      "name": "analysis",
+      "image": "profilid/profilid_analysis",
+      "hostname": "analysis",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 7000,
+          "containerPort": 7000
+        }
+      ]
+    },
+
+    {
       "name": "proxyServer",
       "image": "profilid/profilid_proxy_server",
       "hostname": "proxyServer",
@@ -162,7 +176,15 @@
           "containerPath": "/var/app/cert/letsencrypt/live/profilid.com/privkey.pem"
         }
       ],
-      "links": ["client", "users", "profiles", "auth", "usersDb", "profilesDb"]
+      "links": [
+        "client",
+        "users",
+        "profiles",
+        "auth",
+        "usersDb",
+        "profilesDb",
+        "analysis"
+      ]
     }
   ]
 }
